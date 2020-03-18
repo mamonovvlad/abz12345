@@ -1,13 +1,11 @@
 <template>
   <div id="app">
-      <perfect-scrollbar>
         <Header />
         <Baner />
         <About />
         <Users />
         <Registration />
         <Footer />
-      </perfect-scrollbar>
   </div>
 </template>
 

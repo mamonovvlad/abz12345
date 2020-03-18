@@ -71,8 +71,21 @@
               <button class="form_btn">Browse</button>
             </div>
           </label>
-          <Button />
+          <button type="submit" @click="windowActiv = true " class="btn">Sing up now</button>
         </form>
+      </div>
+    </div>
+    <!--window-->
+    <div class="window" :class="{windowActiv: windowActiv}">
+      <div class="window_box">
+        <p class="window_title">Congratulations</p>
+        <span class="window_close" @click="windowActiv = false">
+          <img src="@/assets/img/close.svg" alt />
+        </span>
+        <p class="window_descr">You have successfully passed the registration</p>
+        <div class="window_block">
+          <button type="submit" @click="windowActiv = false" class="window_btn">Great</button>
+        </div>
       </div>
     </div>
   </div>
@@ -82,21 +95,18 @@
 
 
 <script>
-import Button from "@/components/Button";
 import { email, required } from "vuelidate/lib/validators";
 
 export default {
   name: "register",
   data: () => ({
+    windowActiv: false,
     email: "",
     name: ""
   }),
   validations: {
     email: { email, required },
     name: { required }
-  },
-  components: {
-    Button
   },
   methods: {
     async submitHandler() {
@@ -222,6 +232,63 @@ export default {
     height: 6px
     border-radius: 50%
     background: white
+//window
+.window
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    display: flex
+    align-items: center
+    justify-content: center
+    margin: 0 10px
+    opacity: 0
+    z-index: -99
+    background: rgba(0,0,0,.6)
+.window_box
+    border-radius: 4px
+    background: #FFFFFF
+    position: relative
+    & .window_title
+        font-size: 2.4rem
+        line-height: 30px
+        color: #000000
+        padding: 15px 18px
+        margin: 0
+        text-align: left
+        border-bottom: 1px solid #ECEEF1
+    & .window_close
+        position: absolute
+        top: 9px
+        right: 8px
+        cursor: pointer
+        padding: 10px
+    & .window_descr
+        font-size: 1.6rem
+        line-height: 24px
+        padding: 15px 18px
+        border-bottom: 1px solid #ECEEF1
+    & .window_block
+        padding: 15px 18px
+        text-align: end
+    & .window_btn
+        padding: 10px 20px
+        letter-spacing: 0.5px
+        background: #EF5B4C
+        outline: none
+        cursor: pointer
+        border: none
+        color: #fff
+        font-size: 1.6rem
+        border-radius: 4px
+        transition: 500ms ease
+        &:hover
+            background-color: #D24335
+            transition: 500ms ease
+.windowActiv
+    opacity: 1
+    z-index: 100
 @media screen and (max-width: 768px)
     .registration
         padding: 107px 30px 120px
