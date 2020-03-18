@@ -1,28 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <perfect-scrollbar>
+        <Header />
+        <Baner />
+        <About />
+        <Users />
+        <Registration />
+        <Footer />
+      </perfect-scrollbar>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Header from "@/components/Header";
+import Baner from "@/components/Baner";
+import About from "@/components/About";
+import Users from "@/components/Users";
+import Registration from "@/components/Registration";
+import Footer from "@/components/Footer";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    Header,
+    Baner,
+    About,
+    Users,
+    Registration,
+    Footer
   }
-}
+};
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass">
+@import 'assets/sass/main'
 </style>
